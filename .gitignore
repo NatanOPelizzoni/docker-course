@@ -1,0 +1,11 @@
+# specific files and folders
+1_images_and_containers/node_modules
+1_images_and_containers/build
+1_images_and_containers/dist
+1_images_and_containers/log
+1_images_and_containers/out.log
+1_images_and_containers/*.tmp
+1_images_and_containers/*.temp
+
+# Arquivos de ambiente
+.env
