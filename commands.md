@@ -25,9 +25,25 @@
 
 - **docker run --name my_container image_name :** Run an image in Docker and set a name for the container.
 
-## Run and remove after stop
+### Run and remove after stop
 
 - **docker run -d --rm image_name :** Run an image in Docker in the background and remove it after it stops.
+
+### Volumes
+
+ <span style="color:yellow">IMPORTANT: The directory in volume need be the same of in WORKDIR on Dockerfile</span>.
+
+- **docker run -v name_of_volume:/path/in/container image_name :** Run an image in Docker and mount a named volume.
+
+- **docker run -v /path/on/host:/path/in/container image_name :** Run an image in Docker and use a folder in host as volume.
+
+- **docker run -v /path/in/container image_name :** Run an image in Docker and mount a unamed volume.
+
+<span style="color:yellow">TIP: Is possible use root folder of project as volume to container to update in real-time, for example:</span>
+
+- **docker run -v /var/www/html/test:/var/www/html/test image_name :** Run an image in Docker and use a folder in host to update in real-time without build image again.
+
+- **docker run -v /path/in/container:ro image_name :** Run an image in Docker and mount a volume read only.
 
 ## <span style="color:green">Container Management</span>
 
@@ -146,3 +162,15 @@
 - **docker pull image_name :** Download an image from Docker Hub.
 
 - **docker pull image_name:tag_name :** Download an image from Docker Hub with a specific tag.
+
+### Volumes
+
+- **docker volume ls :** List all volumes.
+
+- **docker volume create volume_name :** Create a volume.
+
+- **docker volume rm volume_name:** Remove a volume.
+
+- **docker volume inspect volume_name :** Inspect a volume.
+
+- **docker volume prune :** Remove all unused local volumes.
