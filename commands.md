@@ -31,7 +31,7 @@
 
 ### Volumes
 
- <span style="color:yellow">IMPORTANT: The directory in volume need be the same of in WORKDIR on Dockerfile</span>.
+<span style="color:yellow">IMPORTANT: The directory in volume need be the same of in WORKDIR on Dockerfile</span>.
 
 - **docker run -v name_of_volume:/path/in/container image_name :** Run an image in Docker and mount a named volume.
 
@@ -44,6 +44,11 @@
 - **docker run -v /var/www/html/test:/var/www/html/test image_name :** Run an image in Docker and use a folder in host to update in real-time without build image again.
 
 - **docker run -v /path/in/container:ro image_name :** Run an image in Docker and mount a volume read only.
+
+### Network
+- **docker run --network=host image_name :** Run an image in Docker and connect to the host network.
+
+- **docker run --network=network_name image_name :** Run an image in Docker and connect to a network created before.
 
 ## <span style="color:green">Container Management</span>
 
@@ -174,3 +179,37 @@
 - **docker volume inspect volume_name :** Inspect a volume.
 
 - **docker volume prune :** Remove all unused local volumes.
+
+### Networks
+
+- **docker network ls :** List all networks.
+
+- **docker network create network_name :** Create a network. As default driver will be bridge!
+
+- **docker network create network_name :** Create a network. As default driver will be bridge!
+
+- **docker network create --driver driver_name network_name :** Create a network with a specific driver. 
+
+    * **bridge :** Default driver. Creates an internal network that allows containers to communicate with each other.
+
+    * **host :** Creates a network that allows containers to communicate with the Docker host.
+
+    * **overlay :** Creates a network that allows communication between multiple Docker daemons.
+
+    * **macvlan :** Creates a network that allows containers to appear as devices on the network.
+
+    * **none :** Creates a network that does not allow any communication between containers or the host.
+
+    * **ipvlan :** Creates a network that allows containers to appear as devices on the network, but with an individual IP address.
+
+    * **transparent :** Creates a network that allows containers to appear as devices on the network, but with their own MAC addresses.
+
+- **docker network rm network_name :** Remove a network.
+
+- **docker network inspect network_name :** Inspect a network.
+
+- **docker network prune :** Remove all unused networks.
+
+- **docker network connect network_name container_name :** Connect a container to a network.
+
+- **docker network disconnect network_name container_name :** Disconnect a container from a network.
