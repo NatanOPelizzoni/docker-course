@@ -1,0 +1,36 @@
+# comment example
+name: "Natan"
+age: 30
+
+object:
+  version: 1
+  file: "test:txt"
+
+integer: 1
+float: 1.1
+
+string_without_quotation_marks: string without quotation marks
+string_with_quotation_marks: string with quotation marks
+
+null_value_1: ~
+null_value_2: null
+
+boolean_true_1: True
+boolean_true_2: On
+
+boolean_false_1: False
+boolean_false_2: Off
+
+list_1: ["String", 1, 1.1]
+
+list_2:
+  - String
+  - True
+  - ~
+
+dictionary_1: {key_1: "Text", key_2: 1, key_3: {key_1: False, key_2: Text}}
+
+dictionary_2:
+  key_1: value_1
+  key_2: value_2
+  key_3: value_3
