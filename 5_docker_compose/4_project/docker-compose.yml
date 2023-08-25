@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  db:
+    image: mysqlcompose
+    restart: always
+    env_file:
+      - ./config/db.env
+    ports:
+      - "3306:3306"
+    networks:
+      - dockercompose
+  
+  backend:
+    depends_on:
+      - db
+    image: flaskcompose
+    restart: always
+    ports:
+      - "5000:5000"
+    networks:
+      - dockercompose
+  
+networks:
+  dockercompose:
+    driver: bridge

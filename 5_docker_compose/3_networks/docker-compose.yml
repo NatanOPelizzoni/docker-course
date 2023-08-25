@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  db: #Container of MySql
+    image: mysql:5.7
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    env_file:
+      - ./config/db.env
+    networks:
+      - backend
+  
+  wordpress: #Container of Wordpress
+    depends_on:
+      - db
+    image: wordpress:latest
+    ports:
+      - "8000:80"
+    restart: always
+    env_file:
+      - ./config/wp.env
+    networks:
+      - backend
+
+volumes:
+  db_data: {}
+networks:
+  backend:
+    driver: bridge

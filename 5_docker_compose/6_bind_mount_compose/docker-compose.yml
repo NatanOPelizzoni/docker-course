@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  db:
+    build: ./mysql/
+    restart: always
+    env_file:
+      - ./config/db.env
+    ports:
+      - "3306:3306"
+    networks:
+      - dockercompose
+  
+  backend:
+    depends_on:
+      - db
+    build: ./flask/
+    restart: always
+    ports:
+      - "5000:5000"
+    volumes:
+      - "C:\\Projects\\docker-course\\5_docker_compose\\6_bind_mount_compose\\flask:/app"
+    networks:
+      - dockercompose
+  
+networks:
+  dockercompose:
+    driver: bridge
