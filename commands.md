@@ -213,3 +213,13 @@
 - **docker network connect network_name container_name :** Connect a container to a network.
 
 - **docker network disconnect network_name container_name :** Disconnect a container from a network.
+
+### Compose
+
+- **docker-compose up :** Create and start containers.
+
+- **docker-compose up -d :** Create and start containers in the background.
+
+- **docker-compose down :** Stop and remove containers, networks, images, and volumes.
+
+- **docker-compose ps :** Show which containers are running.
